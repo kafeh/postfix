@@ -28,14 +28,20 @@ smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
 # information on enabling SSL in the smtp client.
 
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-myhostname = nachos.com
+myhostname = localhost
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = /etc/mailname
-mydestination = nachos.com, localhost.com, , localhost
+mydestination = www.nachos.com, localhost.com, localhost
 relayhost = 
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_command = procmail -a "$EXTENSION"
 mailbox_size_limit = 0
 recipient_delimiter = +
 inet_interfaces = all
+
+virtual_mailbox_domains = /etc/postfix/vhosts.txt
+virtual_mailbox_base = /home/inmortal/
+virtual_mailbox_maps = hash:/etc/postfix/vmaps.txt
+virtual_uid_maps = static:2017
+virtual_gid_maps = static:2017
