@@ -42,6 +42,6 @@ inet_interfaces = all
 
 virtual_mailbox_domains = /etc/postfix/vhosts.txt
 virtual_mailbox_base = /home/inmortal/
-virtual_mailbox_maps = hash:/etc/postfix/vmaps.txt
+virtual_mailbox_maps = ldap:/etc/postfix/ldap-vmaps.txt
 virtual_uid_maps = static:2017
 virtual_gid_maps = static:2017
